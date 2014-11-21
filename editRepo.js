@@ -2,31 +2,38 @@ var API_BASE_URL = "https://api.github.com";
 var USERNAME = "";
 var PASSWORD = "";
 
-function getUserPass() {
-	USERNAME = $("#user").val();
-	PASSWORD = $("#password").val();
-}
+$("#button_get_repo_to_edit").click(function(e) {
+	e.preventDefault();
+	getRepoToEdit($("#repository_name_get_to_edit").val());
+});
+
 
 $("#button_edit_repo").click(function(e) {
 	e.preventDefault();
 
-   var newRepo = new Object();
-   var oldRepo= new Object();
-	newRepo.name = $("#repository_name_to_edit").val();
-	newRepo.description = $("#description_to_edit").val();
+    var newRepo = new Object();
+       var oldRepo= new Object();
+	newRepo.name = $("#repository_name_to_edit").val()
+	newRepo.description = $("#description_to_edit").val()
 	oldRepo.name=$("#repository_name_get_to_edit").val();
 	
 	updateRepo(newRepo,oldRepo);
 });
 
+function getUserPass() {
+	USERNAME = $("#user").val();
+	PASSWORD = $("#password").val();
+}
+
 function getRepoToEdit(repository_name) {
-	getUserPass();	
+	getUserPass();
 	var url = API_BASE_URL + '/repos/' + USERNAME + '/' + repository_name;
 	$("#update_result").text('');
 
-	//validate();
 	$.ajax({
-		headers : {	'Authorization' : "Basic "	+ btoa(USERNAME + ':' + PASSWORD) },
+				headers : {
+			'Authorization' : "Basic " + btoa(USERNAME + ':' + PASSWORD)
+		},
 		url : url,
 		type : 'GET',
 		crossDomain : true,
@@ -35,6 +42,7 @@ function getRepoToEdit(repository_name) {
 		
 				var repo = data;
 				
+
 				$("#update_result").text('');
 				$("#repository_name_to_edit").val(repo.name);
 				$("#description_to_edit").val(repo.description);
@@ -46,14 +54,16 @@ function getRepoToEdit(repository_name) {
 }
 
 function updateRepo(repository,oldRepository) {
-	getUserPass();		
+		getUserPass();	
 	var url = API_BASE_URL + '/repos/' + USERNAME + '/' + oldRepository.name;
 	var data = JSON.stringify(repository);
 
 	$("#update_result").text('');
 
 	$.ajax({
-		headers : {	'Authorization' : "Basic "	+ btoa(USERNAME + ':' + PASSWORD) },
+				headers : {
+			'Authorization' : "Basic " + btoa(USERNAME + ':' + PASSWORD)
+		},
 		url : url,
 		type : 'PATCH',
 		crossDomain : true,

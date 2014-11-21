@@ -1,5 +1,4 @@
 var API_BASE_URL = "https://api.github.com";
-var API_EJEMPLO_URL = "https://api.github.com/repos/dsesto/basesdedatos";
 var USERNAME = "";
 var PASSWORD = "";
 var REPO_NAME = "";

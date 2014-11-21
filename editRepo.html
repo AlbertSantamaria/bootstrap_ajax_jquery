@@ -2,15 +2,14 @@
   <html lang="en">
     <head>
       <meta charset="utf-8">
-      <title>Lista Repos</title>
+      <title>Edit Page</title>
 
       <!-- Latest compiled and minified CSS -->
       <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 
       <!-- Optional theme -->
       <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
-		<!-- Personal -->
-		<link rel="stylesheet" href="githubapi.css">
+
 
     </head>
     <body>
@@ -23,10 +22,10 @@
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li><a href="/getRepo.html">Consulta</a></li>
-            <li class="active"><a href="/getAllRepo.html">Listar</a></li>
+            <li><a href="/getAllRepo.html">Listar</a></li>
             <li><a href="/getReposPag.html">Paginar</a></li>
             <li><a href="/createRepo.html">Crear</a></li>
-            <li><a href="/editRepo.html">Editar</a></li>
+            <li class="active"><a href="/editRepo.html">Editar</a></li>
             <li><a href="/deleteRepo.html">Eliminar</a></li>
             <form class="navbar-form navbar-right" role="form">
 					<div class="form-group" >
@@ -39,46 +38,63 @@
           </ul>
         </div><!-- /.nav-collapse -->
       </div><!-- /.container -->
-    </nav><!-- /.navbar -->        
-    
+    </nav><!-- /.navbar -->         
     
       <div class="container theme-showcase" role="main">
-        <div class="jumbotron" style="padding-top: 200px;color: white; background-color: #00C0FF;" >
-          <h1>Lista de todos los repositorios!</h1> 
+      <div class="jumbotron" style="padding-top: 200px;color: white; background-color: #F5BF05;" >
+          <h1>Edita!</h1>
         </div>
 
+       <div class="page-header">
+          <h4>Introduce el nombre del repositorio a editar y haz click en Seleccionar </h4>
+        </div>
+
+
+			<div class="row">
+			
+			  <div class="col-sm-9" id="formid">
+			     <div class="input-group input-group-sm">
+
+                <span class="input-group-addon"> Name of the Repository to edit</span> 
+                <input type="text" class="form-control" id="repository_name_get_to_edit">
+              </div>
+			   </div>
+			  <div class="col-sm-3">
+			    <button type="button" class="btn btn-info btn-warning" id="button_get_repo_to_edit">Seleccionar Repositorio</button>
+			  </div>
+			</div>
 
         <div class="page-header">
-          <h1>Pulsa para listar todos los repositorios <button type="button" class="btn btn-info" id="button_get_repos">Get All Repositories</button></h1>
- 
+          <h4>Introduce el nuevo nombre y descripción del repositorio a modificar y haz click en Editar</h4>
         </div>
-
+        
         <div class="row">
+        <p></p>
           <div class="col-sm-12">
             <div class="panel panel-default">
               <div class="panel-heading">
-                <h3 class="panel-title">List Repositories</h3>
+                <h3 class="panel-title">Edit Repository</h3>
               </div>
               <div class="panel-body">
-              		<div class="row">
-							<div class="col-sm-8">
-							   <span id="repos_result"></span>
-							</div>              		
-              			<div class="col-sm-4">
-							   <span id="owner_result"></span>
-							   <img class="decoded" id="o_imagen" height="150">
-							</div>    
-              		
-              		</div>
+                <div class="input-group input-group-sm">
+                  <span class="input-group-addon">New Name</span> <input type="textbox" class="form-control" id="repository_name_to_edit">
+						                
+                </div>
+                <p></p>
+                  <div class="input-group input-group-sm">
+                  <span class="input-group-addon">New Description</span> <input type="textbox" class="form-control" id="description_to_edit">
+                 </div>
+						<p></p>
+                 <span id="update_result"></span>
 
+                </div>
               </div>
-            </div>
-          </div><!-- /.col-sm-8 -->
+            </div><!-- /.col-sm-8 -->
+          </div>
 
-        </div>
-
-
-
+			<div class="row" align="center">
+			            <button type="button" class="btn btn-info" id="button_edit_repo" >Edit Repository</button>
+			</div>
 
   </div>
 
@@ -95,6 +111,6 @@
       <!-- Include all compiled plugins (below), or include individual files as needed -->
 
       <!-- Event and AJAX functions -->
-      <script type="text/javascript" src="getAllRepo.js"></script>
+      <script type="text/javascript" src="editRepo.js"></script>
     </body>
   </html>

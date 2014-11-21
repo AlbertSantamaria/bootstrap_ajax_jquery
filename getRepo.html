@@ -2,19 +2,21 @@
   <html lang="en">
     <head>
       <meta charset="utf-8">
-      <title>Lista Repos</title>
+      <title>Consulta Repositorio!</title>
 
       <!-- Latest compiled and minified CSS -->
       <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 
       <!-- Optional theme -->
       <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
-		<!-- Personal -->
-		<link rel="stylesheet" href="githubapi.css">
 
+      <!-- CSS -->
+      <link rel="stylesheet" href="bootstrap.css">
+      
     </head>
     <body>
     
+    <!-- Barra de navegacion -->
     <nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
       <div class="container">
         <div class="navbar-header">
@@ -22,12 +24,12 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="/getRepo.html">Consulta</a></li>
-            <li class="active"><a href="/getAllRepo.html">Listar</a></li>
-            <li><a href="/getReposPag.html">Paginar</a></li>
-            <li><a href="/createRepo.html">Crear</a></li>
-            <li><a href="/editRepo.html">Editar</a></li>
-            <li><a href="/deleteRepo.html">Eliminar</a></li>
+            <li class="active"><a href="/getRepo.html">Consulta</a></li>
+            <li><a href="/getAllRepo.html">Listar</a></li>
+            <li><a href="/paginar.html">Paginar</a></li>
+            <li><a href="/crear.html">Crear</a></li>
+            <li><a href="/editar.html">Editar</a></li>
+            <li><a href="/eliminar.html">Eliminar</a></li>
             <form class="navbar-form navbar-right" role="form">
 					<div class="form-group" >
 						<input placeholder="Usuario" class="form-control" type="text" id="user">
@@ -39,41 +41,58 @@
           </ul>
         </div><!-- /.nav-collapse -->
       </div><!-- /.container -->
-    </nav><!-- /.navbar -->        
+    </nav><!-- /.navbar -->   
     
     
       <div class="container theme-showcase" role="main">
-        <div class="jumbotron" style="padding-top: 200px;color: white; background-color: #00C0FF;" >
-          <h1>Lista de todos los repositorios!</h1> 
+        <div class="jumbotron" style="padding-top: 200px;color: white; background-color: #0039FF;" >
+          <h1>Consulta Repositorio!</h1>
         </div>
 
 
         <div class="page-header">
-          <h1>Pulsa para listar todos los repositorios <button type="button" class="btn btn-info" id="button_get_repos">Get All Repositories</button></h1>
- 
+          <h1>Recibir un Repositorio</h1>
         </div>
 
+			<div class="row">
+			
+			<div class="col-sm-2">
+			<button type="button" class="btn btn-primary" id="button_get_repo">Get Repository</button>
+			</div>
+			
+			<div class="col-sm-10">
+			<div class="input-group input-group-sm">
+              <span class="input-group-addon">Name</span> 
+              <input type="text" class="form-control" id="repository_name">
+            </div>
+			</div>
+			
+			</div>
         <div class="row">
-          <div class="col-sm-12">
+        <p></p>
+          <div class="col-sm-8">
             <div class="panel panel-default">
               <div class="panel-heading">
-                <h3 class="panel-title">List Repositories</h3>
+                <h3 class="panel-title">Get Repository</h3>
               </div>
               <div class="panel-body">
-              		<div class="row">
-							<div class="col-sm-8">
-							   <span id="repos_result"></span>
-							</div>              		
-              			<div class="col-sm-4">
-							   <span id="owner_result"></span>
-							   <img class="decoded" id="o_imagen" height="150">
-							</div>    
-              		
-              		</div>
-
+                 <span id="get_repo_result"></span>
               </div>
             </div>
           </div><!-- /.col-sm-8 -->
+          
+          <div class="col-sm-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                   <h3 class="panel-title">Owner Info</h3>
+                 </div>
+                 <div class="panel-body">
+                   <span id="get_owner_result"></span>
+                   <img class="decoded" id="imagen" height="150">
+                 </div>
+            </div>          
+
+          </div>
 
         </div>
 
@@ -95,6 +114,6 @@
       <!-- Include all compiled plugins (below), or include individual files as needed -->
 
       <!-- Event and AJAX functions -->
-      <script type="text/javascript" src="getAllRepo.js"></script>
+      <script type="text/javascript" src="getRepo.js"></script>
     </body>
   </html>

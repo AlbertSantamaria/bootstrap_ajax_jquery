@@ -55,7 +55,7 @@ $("#button_edit_repo").click(function(e) {
 
 $("#button_to_create").click(function(e) {
 	e.preventDefault();
-
+		window.alert(newRepo.name);
    var newRepo = new Object();
 	newRepo.name = $("#repository_name_to_create").val();
 	newRepo.description = $("#description_to_create").val();
@@ -64,13 +64,11 @@ $("#button_to_create").click(function(e) {
 	newRepo.has_issues = true;
 	newRepo.has_wiki = true;
 	newRepo.has_downloads = true;
-	
+		window.alert(newRepo.name);
 	//validateNewRepo(newRepo);
 
 	createRepo(newRepo);
 });
-
-
 function getRepos() {
 	var url = API_BASE_URL + '/users/' + USERNAME + '/repos';
 	$("#repos_result").text('');
@@ -196,7 +194,6 @@ function getRepo(repository_name) {
 
 }
 
-
 function deleteRepo(repository_name_del) {
 	var url = API_BASE_URL + '/repos/' + USERNAME + '/' + repository_name_del;
 	$("#delete_repo").text('');
@@ -215,7 +212,6 @@ function deleteRepo(repository_name_del) {
 	});
 
 }
-
 
 function getRepoToEdit(repository_name) {
 	var url = API_BASE_URL + '/repos/' + USERNAME + '/' + repository_name;
@@ -264,7 +260,6 @@ function updateRepo(repository,oldRepository) {
 
 }
 
-
 function createRepo(repository) {
 	var url = API_BASE_URL + '/user/repos';
 	var data = JSON.stringify(repository);
@@ -284,4 +279,3 @@ function createRepo(repository) {
 	});
 
 }
-

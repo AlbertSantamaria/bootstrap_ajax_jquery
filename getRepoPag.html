@@ -49,7 +49,7 @@
 
 
         <div class="page-header">
-          <h1>Pulsa para listar todos los repositorios <button type="button" class="btn btn-info" id="button_get_repos">Get All Repositories</button></h1>
+          <h4>Pulsa para listar todos los repositorios de 2 en 2 <button type="button" class="btn btn-info" id="button_get_repos">Get All Repositories</button></h4>
  
         </div>
 
@@ -64,25 +64,29 @@
 							<div class="col-sm-8">
 							   <span id="repos_result"></span>
 							</div>              		
-              			<div class="col-sm-4">
-							   <span id="owner_result"></span>
-							   <img class="decoded" id="o_imagen" height="150">
-							</div>    
-              		
-              		</div>
+             		</div>
 
               </div>
             </div>
           </div><!-- /.col-sm-8 -->
-
         </div>
-
-
-
-
   </div>
 
-        
+   	<!-- Botones de paginación -->
+	<div class="row">
+		<div class="col-sm-2"></div>
+		<div class="col-sm-2">
+			<button type="button" class="btn btn-info" id="button_get_repos_prev">
+				<b>Anteriores</b>
+			</button>
+		</div>
+		<div class="col-sm-3"></div>
+		<div class="col-sm-2">
+			<button type="button" class="btn btn-info" id="button_get_repos_next">
+				<b>Siguientes</b>
+			</button>
+		</div>
+	</div>     
 
 
 
@@ -95,6 +99,6 @@
       <!-- Include all compiled plugins (below), or include individual files as needed -->
 
       <!-- Event and AJAX functions -->
-      <script type="text/javascript" src="getAllRepo.js"></script>
+      <script type="text/javascript" src="getRepoPag.js"></script>
     </body>
   </html>
